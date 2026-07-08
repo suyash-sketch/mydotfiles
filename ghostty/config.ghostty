@@ -1,0 +1,15 @@
+theme = Dracula
+font-family = "JetBrainsMono Nerd Font" 
+font-size = 12
+
+# --- Window Styling ---
+# Adds some breathing room around the edges of the terminal
+window-padding-x = 10
+window-padding-y = 10
+
+# Hide the window titlebar for a cleaner look
+window-decoration = false
+
+
+window-width = 144
+window-height = 38
