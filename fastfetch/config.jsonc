@@ -1,0 +1,77 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  
+  // Controls the logo sizing and spacing
+  "logo": {
+    "color" : {
+        "1" : "#1c86ee",
+        "2" : "#FFFFFF"
+    },
+    "padding": {
+      "top": 1,
+      "left": 1,
+      "right": 2
+    }
+  },
+
+  // Customizes the symbol between the label and the data
+  "display": {
+    "separator": " ➜  ",
+    "color": {
+      "separator": "cyan", // Makes the arrow cyan
+      "keys" : "#1c86ee"
+    }
+  },
+
+  // The actual layout of the information
+  "modules": [
+    "title",
+    "separator",
+    
+    // --- SOFTWARE SECTION ---
+    {
+      "type": "custom",
+      "format": "\u001b[1m💻 Software\u001b[0m" // Bold formatting
+    },
+    "os",
+    "kernel",
+    "packages",
+    "shell",
+    "terminal",
+    "terminalfont",
+    "break", // Adds a blank line
+
+    // --- HARDWARE SECTION ---
+    {
+      "type": "custom",
+      "format": "\u001b[1m⚙️  Hardware\u001b[0m"
+    },
+    "cpu",
+    "gpu",
+    "memory",
+    "battery",
+    "uptime",
+    "break",
+
+    // --- STORAGE & NETWORK SECTION ---
+    {
+      "type": "custom",
+      "format": "\u001b[1m💾 Storage & Network\u001b[0m"
+    },
+    {
+      "type": "disk",
+      "key": "System Disk",
+      "folders": "/"
+    },
+    {
+      "type": "disk",
+      "key": "Extra Volume",
+      "folders": "/run/media/suyashk13/New Volume"
+    },
+    "localip",
+    "break",
+
+    // Prints the standard terminal color blocks at the bottom
+    "colors"
+  ]
+}
