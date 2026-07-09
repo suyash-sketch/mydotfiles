@@ -1,215 +1,254 @@
-    # Get editor completions based on the config schema
+# Get editor completions based on the config schema
+
+ "$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$all\
+${custom.docker}\
+$cmd_duration\
+$line_break\
+$character"""
+
+add_newline = true 
+
+[fill]
+symbol = ' '
+
+# [shell]
+# disabled=false
+# bash_indicator = "🐚"
+# zsh_indicator = "⚡"
+
+[character]
+# success_symbol = '[❯](bold green)'
+success_symbol = '[~>](bold purple)'
+error_symbol = '[](bold red) '
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[cmd_duration]
+# format = "[$duration]($style) "
+format = '\[[$duration]($style)\] '
+style = "yellow"
+
+[custom.docker]
+detect_files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml", "compose.yml", "compose.yaml"]
+symbol = "  "
+# Custom modules require a command to succeed in order to render, so we just echo a space
+command = "echo ' '" 
+format = "[$symbol]($style) "
+style = "#1c86ee"
+
+[aws]
+symbol = " "
+
+[buf]
+symbol = " "
+
+[bun]
+symbol = " "
+
+[c]
+symbol = " "
+
+[cpp]
+symbol = " "
+
+[cmake]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[deno]
+symbol = " "
+
+[directory]
+read_only = " 󰌾"
+
+[docker_context]
+symbol = " "
+format = '\[[$symbol$context]($style)\]'
 
 
-    "$schema" = 'https://starship.rs/config-schema.json'
+[elixir]
+symbol = " "
 
-    scan_timeout = 1000
+[elm]
+symbol = " "
 
-    [shell]
-    disabled=false
-    bash_indicator = "🐚"
-    zsh_indicator = "⚡"
-    
-    [character]
-    error_symbol = '[✗](bold red) '
+[fennel]
+symbol = " "
 
-    [aws]
-    symbol = " "
+[fortran]
+symbol = " "
 
-    [buf]
-    symbol = " "
+[fossil_branch]
+symbol = " "
 
-    [bun]
-    symbol = " "
+[gcloud]
+symbol = " "
+format = '[$symbol$account(@$domain)(\($region\))]($style)'
 
-    [c]
-    symbol = " "
 
-    [cpp]
-    symbol = " "
+[git_branch]
+symbol = " "
 
-    [cmake]
-    symbol = " "
+[git_commit]
+tag_symbol = '  '
 
-    [conda]
-    symbol = " "
+[golang]
+symbol = " "
 
-    [crystal]
-    symbol = " "
+[gradle]
+symbol = " "
 
-    [dart]
-    symbol = " "
+[guix_shell]
+symbol = " "
 
-    [deno]
-    symbol = " "
+[haskell]
+symbol = " "
 
-    [directory]
-    read_only = " 󰌾"
+[haxe]
+symbol = " "
 
-    [docker_context]
-    symbol = " "
+[hg_branch]
+symbol = " "
 
-    [elixir]
-    symbol = " "
+[hostname]
+ssh_symbol = " "
 
-    [elm]
-    symbol = " "
+[java]
+symbol = " "
 
-    [fennel]
-    symbol = " "
+[julia]
+symbol = " "
 
-    [fortran]
-    symbol = " "
+[kotlin]
+symbol = " "
 
-    [fossil_branch]
-    symbol = " "
+[lua]
+symbol = " "
 
-    [gcloud]
-    symbol = " "
+[memory_usage]
+symbol = "󰍛 "
 
-    [git_branch]
-    symbol = " "
+[meson]
+symbol = "󰔷 "
 
-    [git_commit]
-    tag_symbol = '  '
+[nim]
+symbol = "󰆥 "
 
-    [golang]
-    symbol = " "
+[nix_shell]
+symbol = " "
 
-    [gradle]
-    symbol = " "
+[nodejs]
+symbol = " "
+format = '[$symbol($version )]($style)'
 
-    [guix_shell]
-    symbol = " "
+[ocaml]
+symbol = " "
 
-    [haskell]
-    symbol = " "
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
 
-    [haxe]
-    symbol = " "
+[package]
+symbol = "󰏗 "
+format = '[$symbol$version]($style) '
 
-    [hg_branch]
-    symbol = " "
 
-    [hostname]
-    ssh_symbol = " "
+[perl]
+symbol = " "
 
-    [java]
-    symbol = " "
+[php]
+symbol = " "
 
-    [julia]
-    symbol = " "
+[pijul_channel]
+symbol = " "
 
-    [kotlin]
-    symbol = " "
+[pixi]
+symbol = "󰏗 "
 
-    [lua]
-    symbol = " "
+# [python]
+# symbol = " "
 
-    [memory_usage]
-    symbol = "󰍛 "
+[rlang]
+symbol = "󰟔 "
 
-    [meson]
-    symbol = "󰔷 "
+[ruby]
+symbol = " "
 
-    [nim]
-    symbol = "󰆥 "
+[rust]
+symbol = "󱘗 "
 
-    [nix_shell]
-    symbol = " "
+[scala]
+symbol = " "
 
-    [nodejs]
-    symbol = " "
+[status]
+symbol = " "
 
-    [ocaml]
-    symbol = " "
+[swift]
+symbol = " "
 
-    [os.symbols]
-    Alpaquita = " "
-    Alpine = " "
-    AlmaLinux = " "
-    Amazon = " "
-    Android = " "
-    AOSC = " "
-    Arch = " "
-    Artix = " "
-    CachyOS = " "
-    CentOS = " "
-    Debian = " "
-    DragonFly = " "
-    Emscripten = " "
-    EndeavourOS = " "
-    Fedora = " "
-    FreeBSD = " "
-    Garuda = "󰛓 "
-    Gentoo = " "
-    HardenedBSD = "󰞌 "
-    Illumos = "󰈸 "
-    Kali = " "
-    Linux = " "
-    Mabox = " "
-    Macos = " "
-    Manjaro = " "
-    Mariner = " "
-    MidnightBSD = " "
-    Mint = " "
-    NetBSD = " "
-    NixOS = " "
-    Nobara = " "
-    OpenBSD = "󰈺 "
-    openSUSE = " "
-    OracleLinux = "󰌷 "
-    Pop = " "
-    Raspbian = " "
-    Redhat = " "
-    RedHatEnterprise = " "
-    RockyLinux = " "
-    Redox = "󰀘 "
-    Solus = "󰠳 "
-    SUSE = " "
-    Ubuntu = " "
-    Unknown = " "
-    Void = " "
-    Windows = "󰍲 "
+[xmake]
+symbol = " "
 
-    [package]
-    symbol = "󰏗 "
-
-    [perl]
-    symbol = " "
-
-    [php]
-    symbol = " "
-
-    [pijul_channel]
-    symbol = " "
-
-    [pixi]
-    symbol = "󰏗 "
-
-    # [python]
-    # symbol = " "
-
-    [rlang]
-    symbol = "󰟔 "
-
-    [ruby]
-    symbol = " "
-
-    [rust]
-    symbol = "󱘗 "
-
-    [scala]
-    symbol = " "
-
-    [status]
-    symbol = " "
-
-    [swift]
-    symbol = " "
-
-    [xmake]
-    symbol = " "
-
-    [zig]
-    symbol = " "
+[zig]
+symbol = " "
