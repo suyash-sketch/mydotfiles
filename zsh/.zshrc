@@ -54,7 +54,7 @@ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#777777"
 
 # Starship Prompt
-export STARSHIP_CONFIG="$HOME/.config/startship/starship.toml"
+export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 eval "$(starship init zsh)"
 
 # Zsh Syntax Highlighting (MUST BE LAST)
