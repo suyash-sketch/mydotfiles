@@ -15,12 +15,11 @@ if [ -f /etc/os-release ]; then
 
     if [ "$ID" = "fedora" ]; then
         echo "Detected Fedora. Installing tools via dnf..."
-        sudo dnf install -y zsh tmux neovim fastfetch curl
-
+        sudo dnf install -y zsh tmux neovim fastfetch curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
     elif [ "$ID" = "ubuntu" ] || [ "$ID" = "debian" ]; then
         echo "Detected ubuntu/debian. installing tools via apt..."
         sudo apt update
-        sudo apt install -y zsh tmux neovim fastfetch curl
+        sudo apt install -y zsh tmux neovim fastfetch curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
     else
         echo "Unsupported operating system: $ID. Please install zsh, tmux, neovim, fastfetch, curl manually."
     fi
@@ -36,6 +35,34 @@ else
     echo "starship is already installed."
 fi 
 
+# 3. Install Nerd Fonts only if a graphical display is present (Skips on EC2)
+if [ -n "$WAYLAND_DISPLAY" ] || [ -n "$DISPLAY" ]; then
+    FONT_NAME="JetBrainsMono"
+    FONT_DIR="$HOME/.local/share/fonts"
+    
+    if fc-list : family | grep -qi "$FONT_NAME Nerd Font"; then
+        echo "$FONT_NAME Nerd Font is already installed."
+    else
+        echo "Installing $FONT_NAME Nerd Font..."
+        mkdir -p "$FONT_DIR"
+        
+        # Download latest zip of the font from GitHub
+        TEMP_ZIP="/tmp/${FONT_NAME}.zip"
+        URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/${FONT_NAME}.zip"
+        
+        curl -sL "$URL" -o "$TEMP_ZIP"
+        unzip -q "$TEMP_ZIP" -d "$FONT_DIR"
+        rm "$TEMP_ZIP"
+        
+        # Refresh system font cache
+        fc-cache -f -v > /dev/null 2>&1
+        echo "Nerd Font installed successfully."
+    fi
+else
+    echo "Headless environment detected. Skipping Nerd Font installation."
+fi
+
+
 # 3. create the target directories if they don't exist
 echo "Creating necessary directories..."
 mkdir -p ~/.config
@@ -46,10 +73,17 @@ ln -sfn "$DOTFILES_DIR/zsh/.zshrc" ~/.zshrc
 
 # 5. symlink ~/.config directories
 ln -sfn "$DOTFILES_DIR/fastfetch" ~/.config/fastfetch
-ln -sfn "$DOTFILES_DIR/ghostty" ~/.config/ghostty 
 ln -sfn "$DOTFILES_DIR/nvim" ~/.config/nvim
-ln -sfn "$DOTFILES_DIR/starship" ~/.config/starshipstarship.toml
+ln -sfn "$DOTFILES_DIR/starship" ~/.config/starship
 ln -sfn "$DOTFILES_DIR/tmux" ~/.config/tmux
+
+# 5b. Symlink GUI tools ONLY if a display is detected (Skips on EC2)
+if [ -n "$WAYLAND_DISPLAY" ] || [ -n "$DISPLAY" ]; then
+    echo "Graphical environment detected. Linking Ghostty..."
+    ln -sfn "$DOTFILES_DIR/ghostty" ~/.config/ghostty 
+else
+    echo "Headless environment detected. Skipping Ghostty."
+fi
 
 # 6. change default shell to zsh
 if [ "$SHELL" != "/usr/bin/zsh" ] && [ "$SHELL" != "/bin/zsh" ]; then
