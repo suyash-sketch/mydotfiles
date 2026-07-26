@@ -35,7 +35,8 @@ else
     echo "starship is already installed."
 fi 
 
-# 3. Install Nerd Fonts only if a graphical display is present (Skips on EC2)
+# Install Nerd Fonts if a display is present AND we are NOT in WSL
+# WSL via cmd, powershell etc, cannot read fonts stored inside the Linux ~/.local/share/fonts directory. You will still see broken icons.
 if { [ -n "$WAYLAND_DISPLAY" ] || [ -n "$DISPLAY" ]; } && ! grep -qi microsoft /proc/version; then
     FONT_NAME="JetBrainsMono"
     FONT_DIR="$HOME/.local/share/fonts"
