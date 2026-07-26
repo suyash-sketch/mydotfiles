@@ -36,7 +36,7 @@ else
 fi 
 
 # 3. Install Nerd Fonts only if a graphical display is present (Skips on EC2)
-if [ -n "$WAYLAND_DISPLAY" ] || [ -n "$DISPLAY" ]; then
+if { [ -n "$WAYLAND_DISPLAY" ] || [ -n "$DISPLAY" ]; } && ! grep -qi microsoft /proc/version; then
     FONT_NAME="JetBrainsMono"
     FONT_DIR="$HOME/.local/share/fonts"
     
