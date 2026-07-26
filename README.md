@@ -1,3 +1,8 @@
+<p align="center" >
+    <img src="terminal.gif" width="80%">
+</p>
+
+
 ### 🚀 Installation
 
 Run the following commands to clone and install the dotfiles:
