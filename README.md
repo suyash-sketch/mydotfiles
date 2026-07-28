@@ -31,6 +31,22 @@ chmod +x install.sh
 ```
 ./install.sh  
 ```
+
+### To install tmux plugins manager
+
+```
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+```
+Reload your tmux config
+```
+tmux source-file ~/.config/tmux/tmux.conf
+```
+
+Install plugins inside tmux
+```
+ ` followed by shift + i or (ctrl +b) followed by shift + i
+```
+
 ## 🪟 Windows & WSL Users: Setting Up Nerd Fonts
 
 If you are using WSL, this installation script will skip installing local Linux fonts. Because your terminal is drawn by Windows, you must install the Nerd Font directly on your Windows host machine for icons (like Starship and Fastfetch) to render correctly in Windows Terminal, PowerShell, or Command Prompt.
