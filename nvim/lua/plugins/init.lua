@@ -23,7 +23,6 @@ return {
   			"vim",
         "lua",
         "vimdoc",
-            
         "python",
 
         "javascript",
@@ -32,7 +31,6 @@ return {
         "json",
         "html",
         "css",
-        
         "markdown",
 
         "bash",
