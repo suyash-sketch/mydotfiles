@@ -19,7 +19,7 @@ if [ -f /etc/os-release ]; then
     elif [ "$ID" = "ubuntu" ] || [ "$ID" = "debian" ]; then
         echo "Detected ubuntu/debian. installing tools via apt..."
         sudo apt update
-        sudo apt install -y zsh tmux neovim fastfetch curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
+        sudo apt install -y zsh neovim fastfetch curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
     else
         echo "Unsupported operating system: $ID. Please install zsh, tmux, neovim, fastfetch, curl manually."
     fi
@@ -34,6 +34,14 @@ if ! command -v starship &> /dev/null; then
 else
     echo "starship is already installed."
 fi 
+
+# 3. install herdr via official script
+if ! command -v herdr &> /dev/null; then
+    echo "Installing herdr..."
+    curl -fsSL https://herdr.dev/install.sh | sh
+else
+    echo "herdr is already installed."
+fi
 
 # Install Nerd Fonts if a display is present AND we are NOT in WSL
 # WSL via cmd, powershell etc, cannot read fonts stored inside the Linux ~/.local/share/fonts directory. You will still see broken icons.

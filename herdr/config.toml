@@ -1,0 +1,10 @@
+onboarding = false
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[ui.toast]
+delivery = "off"
+
+[keys]
+prefix = "`"
