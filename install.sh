@@ -85,6 +85,7 @@ ln -sfn "$DOTFILES_DIR/fastfetch" ~/.config/fastfetch
 ln -sfn "$DOTFILES_DIR/nvim" ~/.config/nvim
 ln -sfn "$DOTFILES_DIR/starship" ~/.config/starship
 ln -sfn "$DOTFILES_DIR/tmux" ~/.config/tmux
+ln -sfn "$DOTFILES_DIR/herdr" ~/.config/herdr
 
 # 5b. Symlink GUI tools ONLY if a display is detected (Skips on EC2)
 if [ -n "$WAYLAND_DISPLAY" ] || [ -n "$DISPLAY" ]; then
