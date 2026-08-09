@@ -1,0 +1,42 @@
+
+[language-server.pyrefly]
+command = "pyrefly"
+args = ["lsp"]
+
+[[language]]
+name = "python"
+language-servers = ["pyrefly"]
+
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+
+
+
+[language-server.typescript-lsp]
+command = "tsc"
+args = ["--lsp", "--stdio"]
+
+[[language]]
+name = "javascript"
+language-servers = ["typescript-lsp"]
+
+[[language]]
+name = "jsx"
+language-servers = ["typescript-lsp", "tailwindcss-ls"]
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-lsp"]
+
+[[language]]
+name = "tsx"
+language-servers = ["typescript-lsp", "tailwindcss-ls"]

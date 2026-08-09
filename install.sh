@@ -15,11 +15,11 @@ if [ -f /etc/os-release ]; then
 
     if [ "$ID" = "fedora" ]; then
         echo "Detected Fedora. Installing tools via dnf..."
-        sudo dnf install -y zsh tmux neovim fastfetch curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
+        sudo dnf install -y zsh tmux neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
     elif [ "$ID" = "ubuntu" ] || [ "$ID" = "debian" ]; then
         echo "Detected ubuntu/debian. installing tools via apt..."
         sudo apt update
-        sudo apt install -y zsh neovim fastfetch curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
+        sudo apt install -y zsh neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
     else
         echo "Unsupported operating system: $ID. Please install zsh, tmux, neovim, fastfetch, curl manually."
     fi
@@ -86,6 +86,7 @@ ln -sfn "$DOTFILES_DIR/nvim" ~/.config/nvim
 ln -sfn "$DOTFILES_DIR/starship" ~/.config/starship
 ln -sfn "$DOTFILES_DIR/tmux" ~/.config/tmux
 ln -sfn "$DOTFILES_DIR/herdr" ~/.config/herdr
+ln -sfn "$DOTFILES_DIR/helix" ~/.config/helix
 
 # 5b. Symlink GUI tools ONLY if a display is detected (Skips on EC2)
 if [ -n "$WAYLAND_DISPLAY" ] || [ -n "$DISPLAY" ]; then
