@@ -7,5 +7,10 @@ completion-trigger-len = 1
 preview-completion-insert = true
 completion-replace = true
 
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
 [keys.insert]
 j = { k = "normal_mode"}
