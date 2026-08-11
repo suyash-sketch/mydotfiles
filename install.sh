@@ -16,7 +16,7 @@ if [ -f /etc/os-release ]; then
     if [ "$ID" = "fedora" ]; then
         echo "Detected Fedora. Installing tools via dnf..."
         # Removed tmux here
-        sudo dnf install -y zsh neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
+        sudo dnf install -y zsh neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig clang clang-tools-extra cmake ninja-build lldb clang-format
 
     elif [ "$ID" = "ubuntu" ] || [ "$ID" = "debian" ]; then
         echo "Detected ubuntu/debian. Installing tools via apt..."
@@ -28,7 +28,7 @@ if [ -f /etc/os-release ]; then
         sudo apt update
         
         # Now apt can successfully install helix 
-        sudo apt install -y zsh neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
+        sudo apt install -y zsh neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig clang clangd cmake ninja-build lldb clang-format
     else
         # Removed tmux from the error message
         echo "Unsupported operating system: $ID. Please install zsh, neovim, fastfetch, curl manually."
@@ -97,6 +97,21 @@ else
     echo "Headless environment detected. Skipping Nerd Font installation."
 fi
 
+# Install Web LSPs (HTML, CSS, Tailwind, Typescript 7)
+if command -v npm &> /dev/null; then
+    echo "Installing Typscript compiler and HTML, CSS, and Tailwind language servers..."
+    npm install -g typescript vscode-langservers-extracted @tailwindcss/language-server
+else
+    echo "NPM is not installed. Skipping Node-based language servers."
+fi
+
+# Install Python Language Server via uv
+if command -v uv &> /dev/null; then
+    echo "Installing Python LSP..."
+    $HOME/.local/bin/uv tool install pyrefly
+else
+    echo "uv is not installed. Skipping Python LSP."
+fi
 
 # 3. create the target directories if they don't exist
 echo "Creating necessary directories..."
