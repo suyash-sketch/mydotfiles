@@ -41,9 +41,11 @@ language-servers = ["typescript-lsp"]
 name = "tsx"
 language-servers = ["typescript-lsp", "tailwindcss-ls"]
 
-
+[language-server.clangd]
+command = "clangd"
 
 [[language]]
 name = "cpp"
+language-servers = ["clangd"]
 auto-format = true
 formatter = { command = "clang-format" }
