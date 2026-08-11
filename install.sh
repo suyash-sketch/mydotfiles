@@ -15,16 +15,26 @@ if [ -f /etc/os-release ]; then
 
     if [ "$ID" = "fedora" ]; then
         echo "Detected Fedora. Installing tools via dnf..."
-        sudo dnf install -y zsh tmux neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
+        # Removed tmux here
+        sudo dnf install -y zsh neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
+
     elif [ "$ID" = "ubuntu" ] || [ "$ID" = "debian" ]; then
-        echo "Detected ubuntu/debian. installing tools via apt..."
+        echo "Detected ubuntu/debian. Installing tools via apt..."
         sudo apt update
+        sudo apt install -y software-properties-common
+        
+        # Add the Helix PPA so apt knows where to find it
+        sudo add-apt-repository -y ppa:maveonair/helix-editor
+        sudo apt update
+        
+        # Now apt can successfully install helix 
         sudo apt install -y zsh neovim fastfetch helix curl zsh-autosuggestions zsh-syntax-highlighting unzip fontconfig
     else
-        echo "Unsupported operating system: $ID. Please install zsh, tmux, neovim, fastfetch, curl manually."
+        # Removed tmux from the error message
+        echo "Unsupported operating system: $ID. Please install zsh, neovim, fastfetch, curl manually."
     fi
 else
-    echo "Could not detect operating system. Please install zsh, tmux, neovim, fastfetch, curl manually."
+    echo "Could not detect operating system. Please install zsh, neovim, fastfetch, curl manually."
 fi
 
 # 2. install starship via official script
@@ -41,6 +51,22 @@ if ! command -v herdr &> /dev/null; then
     curl -fsSL https://herdr.dev/install.sh | sh
 else
     echo "herdr is already installed."
+fi
+
+# 4. install uv via official script
+if ! command -v uv &> /dev/null; then
+    echo "Installing uv..."
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+else
+    echo "uv is already installed."
+fi
+
+# 4b. Install Python 3.13 using uv if python is missing
+if ! command -v python3 &> /dev/null; then
+    echo "Python 3 is not installed. Installing Python 3.13 via uv..."
+    $HOME/.local/bin/uv python install 3.13
+else
+    echo "Python is already installed."
 fi
 
 # Install Nerd Fonts if a display is present AND we are NOT in WSL
