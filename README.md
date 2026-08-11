@@ -3,7 +3,11 @@
 </p>
 
 
-### 🚀 Installation
+## 🚀 Installation
+### Pre-requisite:
+#### javascript runtime environment - nodeJs (latest LTS preferred)
+* follow steps from official documentation of nodejs here:  
+[nodeJs Official Docs](https://nodejs.org/en/download)   
 
 Run the following commands to clone and install the dotfiles:
 
