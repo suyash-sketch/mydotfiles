@@ -48,4 +48,4 @@ command = "clangd"
 name = "cpp"
 language-servers = ["clangd"]
 auto-format = true
-formatter = { command = "clang-format" }
+formatter = { command = "clang-format", args = ["--style=Google"] }
