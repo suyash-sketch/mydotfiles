@@ -7,6 +7,10 @@ completion-trigger-len = 1
 preview-completion-insert = true
 completion-replace = true
 
+# [editor.auto-save.after-delay]
+# enable = true
+# timeout = 300
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
