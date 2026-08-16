@@ -6,6 +6,7 @@ completion-timeout = 5
 completion-trigger-len = 1
 preview-completion-insert = true
 completion-replace = true
+line-number = "relative"
 
 # [editor.auto-save.after-delay]
 # enable = true
