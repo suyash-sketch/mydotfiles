@@ -7,6 +7,7 @@ completion-trigger-len = 1
 preview-completion-insert = true
 completion-replace = true
 line-number = "relative"
+bufferline = "multiple"
 
 # [editor.auto-save.after-delay]
 # enable = true
@@ -19,3 +20,6 @@ select = "underline"
 
 [keys.insert]
 j = { k = "normal_mode"}
+
+[keys.normal]
+C-w = ":buffer-close"
