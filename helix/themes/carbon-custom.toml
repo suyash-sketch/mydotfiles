@@ -1,4 +1,8 @@
 inherits = "carbon"
 
 # change comment color
-"comment" = { fg = "#B0B3BB", modifiers = ["italic"] }
+# "comment" = { fg = "#B0B3BB", modifiers = ["italic"] }
+"comment" = { fg = "#7F8490", modifiers = ["italic"] }
+
+# "ui.selection" = { fg = "#FFFFFF", bg = "#3B4252" }
+# "ui.selection.primary" = { fg = "#FFFFFF", bg = "#4C566A" }
