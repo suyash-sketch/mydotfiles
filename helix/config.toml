@@ -1,4 +1,4 @@
-theme = "carbon"
+theme = "carbon-custom"
 
 [editor]
 auto-completion = true
@@ -9,9 +9,9 @@ completion-replace = true
 line-number = "relative"
 bufferline = "multiple"
 
-# [editor.auto-save.after-delay]
-# enable = true
-# timeout = 300
+[editor.auto-save.after-delay]
+enable = true
+timeout = 300
 
 [editor.cursor-shape]
 insert = "bar"

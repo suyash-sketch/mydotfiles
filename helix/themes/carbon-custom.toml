@@ -1,0 +1,4 @@
+inherits = "carbon"
+
+# change comment color
+"comment" = { fg = "#B0B3BB", modifiers = ["italic"] }
