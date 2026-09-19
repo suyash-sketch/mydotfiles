@@ -1,0 +1,99 @@
+{
+  "edit_predictions": {
+      "provider": "zed",
+      "open_ai_compatible_api": {
+        "api_url": "http://localhost:8080/v1/completions",
+        "model": "gemma-4-E4B-it-qat-UD-Q4_K_XL.gguf",
+        "prompt_format": "code_gemma",
+        "max_output_tokens": 256
+    }
+  },
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    }
+  },
+  "disable_ai": false,
+  "vim_mode": true,
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "show_edit_predictions": true,
+  // "edit_predictions": {
+  //   "mode": "subtle",
+  //   "provider": "zed"
+  // },
+  "agent": {
+    "terminal_init_command": "",
+    "play_sound_when_agent_done": "always",
+    "dock": "right",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini",
+      "enable_thinking": false,
+      "effort": "high"
+    },
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "cursor_shape": "underline",
+  "ui_font_weight": 450.0,
+  "buffer_line_height": {
+    "custom": 1.600000023841858
+  },
+  "buffer_font_weight": 450.0,
+  "agent_buffer_font_size": 17.0,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "icon_theme": "Material Icon Theme",
+  "theme": {
+    "mode": "system",
+    "light": "One Dark",
+    "dark": "One Dark"
+  },
+  "terminal": {
+    "font_size": 19.0,
+    "font_family": "JetBrainsMono Nerd Font"
+  },
+  "agent_ui_font_size": 17.0,
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 18.5,
+  "buffer_font_size": 20.0,
+  "context_servers": {
+    "code-review-graph": {
+      "command": "uvx",
+      "args": [
+        "code-review-graph",
+        "serve"
+      ]
+    }
+  },
+  
+  "languages": {
+    "C++": {
+      "show_edit_predictions": true
+    },
+    "Python" : {
+     "language_servers": [
+       "pyrefly",
+       "ruff",
+       "!basedpyright",
+       "!pyright",
+       "!pylsp"
+     ] 
+    },
+  },
+}
