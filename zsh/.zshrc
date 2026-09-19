@@ -97,6 +97,9 @@ bindkey "^[[3;5~" kill-word
 # 7. Startup Scripts
 # ==========================================
 # run fastfetch on startup if installed 
-if command -v fastfetch &> /dev/null; then
-    fastfetch --percent-type 3
-fi
+# if command -v fastfetch &> /dev/null; then
+#     fastfetch --percent-type 3
+# fi
+alias fastfetch="fastfetch --percent-type 3"
+export PATH=/usr/local/cuda-13.3/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-13.3/lib64${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}

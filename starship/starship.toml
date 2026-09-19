@@ -2,17 +2,20 @@
 
 format = """
 $directory\
+$character
+"""
+
+right_format = """
 $git_branch\
 $git_status\
-$fill\
 $python\
 $all\
 ${custom.docker}\
 $cmd_duration\
 $line_break\
-$character"""
+"""
 
-add_newline = true 
+add_newline = true
 
 [fill]
 symbol = ' '
@@ -23,8 +26,8 @@ symbol = ' '
 # zsh_indicator = "⚡"
 
 [character]
-# success_symbol = '[❯](bold green)'
-success_symbol = '[~>](bold purple)'
+success_symbol = '[❯](bold green)'
+# success_symbol = '[~>](bold purple)'
 error_symbol = '[](bold red) '
 
 [python]
