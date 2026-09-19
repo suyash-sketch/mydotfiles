@@ -1,0 +1,73 @@
+[bar.default]
+position = "top"
+spacing = 0
+thickness = 29
+
+
+
+start = [
+  "launcher",
+  "workspaces",
+]
+
+center = [
+  "clock",
+]
+
+end = [
+  "tray",
+  "spacer",
+  "clipboard",
+  "spacer",
+  "bluetooth",
+  "spacer",
+  "network",
+  "spacer",
+  "volume",
+  "spacer",
+  "battery",
+]
+
+[widget.spacer]
+scale = 0.6
+
+[widget.workspaces]
+style = "minimal"
+
+show_labels = true
+show_icons = false
+
+hide_when_empty = false
+labels_only_when_occupied = false
+
+change_color_on_hover = false
+
+focused_color = "#7aa2f7"
+occupied_color = "#a9b1d6"
+empty_color = "#565f89"
+urgent_color = "#f7768e"
+
+[widget.clock]
+format = "{:%A  %H : %M}"
+
+# [widget.tray]
+# scale = 0.9
+
+# [widget.clipboard]
+# scale = 0.9
+
+# [widget.bluetooth]
+# scale = 0.9
+
+[widget.network]
+# scale = 0.9
+show_label = false
+
+[widget.volume]
+# scale = 0.9
+show_label = false
+
+[widget.battery]
+# scale = 0.9
+show_label = true
+label_content = "percent"
