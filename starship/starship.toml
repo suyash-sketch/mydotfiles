@@ -27,11 +27,13 @@ symbol = ' '
 
 [character]
 success_symbol = '[❯](bold green)'
-# success_symbol = '[~>](bold purple)'
 error_symbol = '[](bold red) '
+# success_symbol = '[~>](bold purple)'
 
 [python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = " "
+version_format = '${major}.${minor}'
+format = '[${symbol}${version} (${virtualenv})]($style) '
 
 [cmd_duration]
 # format = "[$duration]($style) "
@@ -106,6 +108,7 @@ format = '[$symbol$account(@$domain)(\($region\))]($style)'
 
 [git_branch]
 symbol = " "
+format = '[$symbol$branch]($style) '
 
 [git_commit]
 tag_symbol = '  '
@@ -227,8 +230,7 @@ symbol = " "
 [pixi]
 symbol = "󰏗 "
 
-# [python]
-# symbol = " "
+
 
 [rlang]
 symbol = "󰟔 "
